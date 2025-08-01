@@ -32,7 +32,7 @@ Welcome to **Slide Editor Foundation** - a modern, professional presentation bui
 - **🎨 Professional Templates**: Pre-built real estate templates with dynamic content population
 - **🖱️ Drag & Drop Interface**: Intuitive slide management and element positioning
 - **📊 Real-time Preview**: See changes instantly with live preview functionality
-- **📄 PDF Export**: Export presentations as high-quality PDFs
+- **📄 PDF Export**: Export presentations as PDFs
 - **🔧 Extensible Architecture**: Built for easy feature additions and customization
 
 ---
@@ -47,19 +47,12 @@ Welcome to **Slide Editor Foundation** - a modern, professional presentation bui
 - Drag-and-drop slide management
 - Real-time editing capabilities
 - PDF export functionality
-- Responsive design across devices
 
 ---
 
 ## 🚀 Live Demo
 
 > **Deployed Application**: [Slide Editor Foundation](https://your-deployment-link.com)
-
-### 🌐 Access the Application
-
-- **Production Build**: Optimized for performance
-- **Mobile Responsive**: Works on all devices
-- **Real-time Updates**: Latest features always available
 
 ---
 
@@ -75,7 +68,7 @@ Welcome to **Slide Editor Foundation** - a modern, professional presentation bui
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/slide-editor-foundation.git
+git clone https://github.com/yadi09/slide-editor-foundation.git
 
 # 2. Navigate to the project directory
 cd slide-editor-foundation
@@ -88,6 +81,53 @@ npm run dev
 
 # 5. Open your browser
 # Navigate to: http://localhost:5173
+```
+
+### Install yadamzer-comment-tools
+
+```bash
+# It helps you to hide/unhide large comment content to keep the code clean
+
+# 1. Instatll yadamzer-comment-tools
+npm install -g yadamzer-comment-tools
+# OR
+sudo npm install -g yadamzer-comment-tools
+
+# 2. How to Use: Basic Commands
+
+# Hide all hideable comments in a file
+comment-tools hide src/components/MyComponent.tsx
+
+# Hide comment at specific line
+comment-tools hide src/components/MyComponent.tsx --line 42
+
+# Unhide all hidden comments in a file
+comment-tools unhide src/components/MyComponent.tsx
+
+# Unhide comment at specific line
+comment-tools unhide src/components/MyComponent.tsx --line 42
+
+# Check status of hidden comments
+comment-tools status
+
+# Check status for specific file
+comment-tools status src/components/MyComponent.tsx
+
+# 3. Supported Comment Tags
+# The tool recognizes these comment patterns:
+
+// @dev: This comment will be hidden
+// @hideable: This comment will also be hidden
+
+// @dev: Multi-line comments are supported
+// and will be hidden as a single block
+// until a non-comment line is reached
+
+/*
+ * Block comments starting with @dev: or @hideable:
+ * are also supported
+ */
+
 ```
 
 ### 🔧 Development Commands
@@ -124,8 +164,7 @@ src/
 ├── utils/              # Utility functions
 ├── types/              # TypeScript type definitions
 ├── constants/          # Application constants
-├── data/               # Mock data and templates
-└── styles/             # Global styles
+└── data/               # Mock data and templates
 ```
 
 ---
@@ -137,15 +176,15 @@ src/
 #### **Slides Management**
 
 - ✅ **Add/Delete/Duplicate Slides**: Full CRUD operations for slide management
-- ✅ **Drag & Drop Reordering**: Intuitive slide reordering with visual feedback
+- ✅ **Drag & Drop Reordering**: slide reordering with visual feedback
 - ✅ **Slide Selection**: Highlight and manage selected slides
 - ✅ **Auto-save**: Automatic presentation saving to local storage
 
 #### **Canvas Editor**
 
 - ✅ **Text Elements**: Rich text editing with formatting options
-- ✅ **Image Elements**: Upload and display images with resize capabilities
-- ✅ **Shape Elements**: Multiple shape types (rectangle, circle, triangle, diamond)
+- ✅ **Image Elements**: Upload images or load from URLs with resize capabilities
+- ✅ **Shape Elements**: Multiple shape types (rectangle, circle, triangle, diamond, star)
 - ✅ **Element Positioning**: Drag, resize, and position elements precisely
 - ✅ **Z-Index Management**: Bring to front/send to back functionality
 - ✅ **Grid Snapping**: Professional alignment with grid overlay
@@ -153,38 +192,38 @@ src/
 #### **Template System**
 
 - ✅ **Pre-built Templates**: Professional real estate templates
-- ✅ **Template Population**: Dynamic content replacement via API
+- ✅ **Template Population**: Dynamic content replacement via static JSON
 - ✅ **Custom Templates**: Save and reuse custom slide designs
-- ✅ **Template Categories**: Organized template management
+- ✅ **Template Categories**: Organized template
+
+#### **Auto-Save System**
+
+- ✅ **Automatic persistence** on every state change
+- ✅ **No data loss** during editing
 
 #### **Export & Preview**
 
 - ✅ **Full-screen Preview**: ESC to exit preview mode
-- ✅ **PDF Export**: High-quality PDF generation
-- ✅ **Image Export**: Individual slide image export
-- ✅ **Print Support**: Print-ready output
+- ✅ **PDF Export**: PDF generation for Multi slides
 
 ### 🎯 **Real Estate Specific Features**
 
 #### **Template Population**
 
-- ✅ **Dynamic Content**: Replace placeholders with real data
+- ✅ **Dynamic Content**: Replace placeholders with mock data
 - ✅ **Image Population**: Automatic image loading from URLs
 - ✅ **Text Replacement**: Property details, agent info, specifications
-- ✅ **Nested Data Support**: Handle complex data structures
 
 #### **Professional Templates**
 
 - ✅ **Property Listing**: Complete property showcase template
-- ✅ **Dual Image Layout**: Two-image comparison layouts
-- ✅ **Interior & Exterior**: Property view templates
+- ✅ **Image Layout**: To show picture of the property
 - ✅ **Customizable Elements**: All elements fully editable
 
 ### 🔧 **Technical Features**
 
 #### **Performance & UX**
 
-- ✅ **Responsive Design**: Works on desktop, tablet, and mobile
 - ✅ **Keyboard Shortcuts**: Efficient editing workflow
 - ✅ **Error Boundaries**: Graceful error handling
 - ✅ **Loading States**: User feedback during operations
@@ -207,7 +246,7 @@ src/
 #### **Separation of Concerns**
 
 ```typescript
-// ✅ Clean separation: UI, Logic, Data
+//  Clean separation: UI, Logic, Data
 // components/ - Pure UI components
 // hooks/ - Business logic
 // utils/ - Utility functions
@@ -217,7 +256,8 @@ src/
 #### **Single Responsibility Principle**
 
 ```typescript
-// ✅ Each component has one clear purpose
+//  Each component has one clear purpose
+// Example:
 export const SlidesPanel = () => {
   // Only handles slide display and reordering
   return <div>...</div>;
@@ -234,7 +274,8 @@ export const Canvas = () => {
 #### **Consistent Naming Conventions**
 
 ```typescript
-// ✅ Clear, descriptive names
+// Clear, descriptive names
+// Example:
 const useSlideStore = () => {
   /* ... */
 };
@@ -249,7 +290,8 @@ const populateTemplate = (slide, data) => {
 #### **Self-Documenting Code**
 
 ```typescript
-// ✅ Code explains itself
+// Code explains itself
+// Example:
 const handleElementSelect = (elementId: string) => {
   setSelectedElement(elementId);
   setShowTextFormatPanel(elementId ? true : false);
@@ -261,7 +303,8 @@ const handleElementSelect = (elementId: string) => {
 #### **Reusable Components**
 
 ```typescript
-// ✅ Shared components reduce duplication
+// Shared components reduce duplication
+// Example:
 export const ErrorBoundary = ({ children, fallback }) => {
   // Used across all components for error handling
 };
@@ -274,11 +317,8 @@ export const Toast = ({ message, type }) => {
 #### **Utility Functions**
 
 ```typescript
-// ✅ Centralized utilities
-export const getElementDimensions = (type: ElementType) => {
-  // Reused across multiple components
-};
-
+// Centralized
+// Example:
 export const showToast = {
   success: (message: string) => {
     /* ... */
@@ -294,7 +334,7 @@ export const showToast = {
 #### **Component Organization**
 
 ```typescript
-// ✅ Logical grouping by feature
+// Logical grouping by feature
 src/components/
 ├── layout/          # App structure
 ├── slides/          # Slide management
@@ -304,34 +344,40 @@ src/components/
 └── common/          # Shared components
 ```
 
-#### **Barrel Exports**
+## 🎯 State Management
+
+### **📊 Architecture Overview**
+
+The application uses a **hybrid state management approach** combining centralized global state with local UI state for optimal performance and maintainability.
+
+#### **🏗️ State Layers**
 
 ```typescript
-// ✅ Clean imports
-export * from "./layout";
-export * from "./slides";
-export * from "./elements";
-// Single import point for all components
-```
+// 1. Global State (useSlideStore)
+const {
+  slides,
+  currentSlideId,
+  selectedElementId,
+  addSlide,
+  deleteSlide,
+  updateElement,
+} = useSlideStore();
 
-### 📈 **Scalable Design**
+// 2. Local UI State (App.tsx)
+const [showPreview, setShowPreview] = useState(false);
+const [isExporting, setIsExporting] = useState(false);
 
-#### **State Management**
-
-```typescript
-// ✅ Centralized state with clear interfaces
-interface SlideStore {
-  slides: Slide[];
-  selectedSlide: string | null;
-  selectedElement: string | null;
-  // Clear, extensible state structure
-}
+// 3. Memoized Computed Values
+const currentSlide = useMemo(
+  () => slides.find((slide) => slide.id === currentSlideId),
+  [slides, currentSlideId]
+);
 ```
 
 #### **Type Safety**
 
 ```typescript
-// ✅ Comprehensive type definitions
+// Comprehensive type definitions
 interface SlideElement {
   id: string;
   type: "text" | "image" | "shape";
@@ -350,13 +396,30 @@ interface SlideElement {
 #### **Plugin System Ready**
 
 ```typescript
-// ✅ Easy to add new element types
-const elementTypes = {
-  text: TextElement,
-  image: ImageElement,
-  shape: ShapeElement,
-  // Easy to extend with new types
-};
+// Extensive for new thing
+// - Switch statement for different element types
+// - Easy to extend with new element types
+
+const renderElement = (element: SlideElement) => {
+  switch (element.type) {
+    case "text":
+      return <TextElement element={element} isSelected={element.id === selectedElementId} onUpdate={...} />
+    case "image":
+      return <ImageElement element={element} isSelected={element.id === selectedElementId} onUpdate={...} />
+    case "shape":
+      return <ShapeElement element={element} isSelected={element.id === selectedElementId} onUpdate={...} />
+    default:
+      return null
+  }
+}
+```
+
+```typescript
+// Easy to Add New Element Types:
+// Simply add a new case to the switch statement
+case "video":
+  return <VideoElement element={element} isSelected={isSelected} onUpdate={onUpdate} />
+
 ```
 
 #### **Template System**
