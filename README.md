@@ -540,4 +540,127 @@ Location: src/components/layout/AppEditor.tsx
 🎯 STEP 7: User Sees Populated Slide
 Location: src/components/slides/Canvas.tsx
 
-## 🚀 adding-future-features
+## 🚀 Adding-future-features
+
+### 📋Example: Element System - Adding New Element Types
+
+#### Current Structure:
+
+```typescript
+// src/types/index.ts
+export interface SlideElement {
+  id: string;
+  type: "text" | "image" | "shape"; // ← Easy to extend
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  content?: string;
+  style?: {
+    backgroundColor?: string;
+    color?: string;
+    fontSize?: number;
+    fontWeight?: string;
+    fontStyle?: string;
+    textDecoration?: string;
+    textAlign?: "left" | "center" | "right";
+    borderRadius?: number | string;
+  };
+  zIndex?: number;
+}
+```
+
+#### How to Add a New Element Type (e.g., "video"):
+
+**Step 1: Update Type Definition**
+
+```typescript
+// src/types/index.ts
+export interface SlideElement {
+  id: string;
+  type: "text" | "image" | "shape" | "video"; // ← Add new type
+  // ... rest remains the same
+}
+```
+
+**Step 2: Create New Element Component**
+
+```typescript
+// src/components/elements/VideoElement.tsx
+```
+
+**Step 3: Add to Element Registry**
+
+```typescript
+// src/components/elements/index.ts
+export { TextElement } from "./TextElement";
+export { ImageElement } from "./ImageElement";
+export { ShapeElement } from "./ShapeElement";
+export { VideoElement } from "./VideoElement"; // ← Add new export
+```
+
+**Step 4: Update Renderer Functions**
+
+```typescript
+// src/components/slides/Canvas.tsx
+const renderElement = (element: SlideElement) => {
+  switch (element.type) {
+    case "text":
+      return (
+        <TextElement
+          element={element}
+          isSelected={isSelected}
+          onUpdate={onUpdate}
+        />
+      );
+    case "image":
+      return (
+        <ImageElement
+          element={element}
+          isSelected={isSelected}
+          onUpdate={onUpdate}
+        />
+      );
+    case "shape":
+      return (
+        <ShapeElement
+          element={element}
+          isSelected={isSelected}
+          onUpdate={onUpdate}
+        />
+      );
+    case "video": // ← Add new case
+      return (
+        <VideoElement
+          element={element}
+          isSelected={isSelected}
+          onUpdate={onUpdate}
+        />
+      );
+    default:
+      return <div>Unknown element type: {element.type}</div>;
+  }
+};
+```
+
+**Step 5: Update Constants**
+
+```typescript
+// src/constants/appConstants.ts
+export const APP_CONSTANTS = {
+  ELEMENT_DIMENSIONS: {
+    text: { width: 300, height: 60 },
+    image: { width: 150, height: 100 },
+    shape: { width: 150, height: 100 },
+    video: { width: 320, height: 240 }, // ← Add new dimensions
+  },
+  DEFAULT_STYLES: {
+    // ... existing styles
+    video: {
+      // ← Add new default styles
+      backgroundColor: "transparent",
+      borderRadius: 8,
+    },
+  },
+};
+```
