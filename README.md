@@ -23,6 +23,8 @@
 
 ---
 
+- [🎉 Welcome](#-welcome)
+
 ## 🎉 Welcome
 
 Welcome to **Slide Editor Foundation** - a modern, professional presentation builder designed specifically for real estate professionals. This React-based application provides a Google Slides-like experience with powerful template population capabilities, making it perfect for creating stunning property presentations.
@@ -82,6 +84,8 @@ npm run dev
 # 5. Open your browser
 # Navigate to: http://localhost:5173
 ```
+
+## 🚀 yadamzer-comment-tools
 
 ### Install yadamzer-comment-tools
 
@@ -419,13 +423,12 @@ const renderElement = (element: SlideElement) => {
 // Simply add a new case to the switch statement
 case "video":
   return <VideoElement element={element} isSelected={isSelected} onUpdate={onUpdate} />
-
 ```
 
 #### **Template System**
 
 ```typescript
-// ✅ Flexible template structure
+// Flexible template structure
 interface Template {
   id: string;
   name: string;
@@ -448,13 +451,74 @@ interface Template {
 #### **Developer Experience**
 
 - ✅ **Path Aliases**: Clean import paths (`@/components`)
-- ✅ **Hot Reload**: Instant development feedback
 - ✅ **Type Checking**: Real-time TypeScript validation
 - ✅ **Code Formatting**: Automatic Prettier formatting
+- ✅ **Comment hide/unhide**: Useing my own npm package called (`yadamzer-comment-tools`)
 
 ---
 
 ## 🔧 Template Population via API
+
+### **🏗️ Architecture Overview**
+
+The Template Population system implements a **reactive, type-safe, and extensible architecture** with clear separation of concerns:
+
+```typescript
+// Core Architecture Components [conceptual interface]
+interface TemplatePopulationSystem {
+  templates: Slide[]; // Template definitions with placeholders
+  dataSource: RealEstateData; // Structured data from API/mock
+  populationEngine: Function; // Core replacement logic
+  validation: Function; // Data integrity checks
+  errorHandling: Function; // Graceful failure recovery
+}
+```
+
+### **🔧 Core Implementation Details**
+
+#### **1. Type-Safe Data Structures**
+
+```typescript
+// Comprehensive type definitions for type safety
+interface RealEstateData {
+  propertyType: string;
+  address: string;
+  price: string;
+  bedrooms: number;
+  bathrooms: number;
+  sqft: number;
+  yearBuilt: number;
+  description: string;
+  agent: {
+    name: string;
+    phone: string;
+    email: string;
+  };
+  images: string[]; // Array of image URLs
+}
+
+interface SlideElement {
+  id: string;
+  type: "text" | "image" | "shape";
+  content?: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  style?: ElementStyle;
+  zIndex?: number;
+}
+```
+
+#### **2. Advanced Population Engine**
+
+```typescript
+from utils/templateUtils.ts // Check the code there is a comprehensive and clear comment
+// TO unhide the comment use `yadamzer-comment-tools` npm package
+// check the bellow link to know how to use `yadamzer-comment-tools`
+```
+
+- [yadamzer-comment-tools](#-yadamzer-comment-tools)
 
 ### 📊 **How It Works**
 
@@ -463,7 +527,7 @@ The template population system dynamically replaces placeholder content with rea
 #### **1. Template Definition**
 
 ```typescript
-// ✅ Templates contain placeholders
+// Templates contain placeholders
 {
   id: "property-image",
   type: "image",
