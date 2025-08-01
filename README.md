@@ -4,8 +4,8 @@
 
 [![React](https://img.shields.io/badge/React-19.1.0-blue.svg)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue.svg)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-orange.svg)](https://tailwindcss.com/)
-[![Vite](https://img.shields.io/badge/Vite-4.4-build.svg)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4.17-orange.svg)](https://tailwindcss.com/)
+[![Vite](https://img.shields.io/badge/Vite-7.0.4-build.svg)](https://vitejs.dev/)
 
 ## 📋 Table of Contents
 
