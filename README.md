@@ -55,12 +55,6 @@ Welcome to **Slide Editor Foundation** - a modern, professional presentation bui
 
 ## ⚙️ Setup & Installation
 
-### 📋 Prerequisites
-
-- **Node.js** (v16.0.0 or higher)
-- **npm** (v8.0.0 or higher)
-- **Git** (for cloning the repository)
-
 ### 🚀 Quick Start
 
 ```bash
