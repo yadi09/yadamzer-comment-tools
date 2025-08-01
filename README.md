@@ -2,8 +2,8 @@
 
 > **A React-based presentation slide editor with real estate template population, drag-and-drop functionality, and PDF export capabilities.**
 
-[![React](https://img.shields.io/badge/React-18.2.0-blue.svg)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19.1.0-blue.svg)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue.svg)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3-orange.svg)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-4.4-build.svg)](https://vitejs.dev/)
 
