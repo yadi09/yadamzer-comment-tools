@@ -59,7 +59,7 @@ Welcome to **Slide Editor Foundation** - a modern, professional presentation bui
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yadi09/slide-editor-foundation.git
+git clone https://github.com/yadi09/Slide_Editor_Foundation.git
 
 # 2. Navigate to the project directory
 cd slide-editor-foundation
@@ -658,3 +658,4 @@ export const APP_CONSTANTS = {
   },
 };
 ```
+
